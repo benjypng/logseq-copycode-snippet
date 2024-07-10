@@ -1,19 +1,22 @@
 const addCopyButtonToCodeBlock = (block) => {
   if (block.querySelector(".copy-code-button")) return;
   const copyButton = document.createElement("button");
-  copyButton.textContent = "Copy";
+  const copyIcon = document.createElement("i");
+  copyIcon.className = "ti ti-copy";
+  copyIcon.style.pointerEvents = "none";
+  copyButton.appendChild(copyIcon);
   copyButton.className = "copy-code-button";
   copyButton.style.cssText = `
     position: absolute;
     top: 5px;
-    right: 5px;
+    left: 5px;
     z-index: 10;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    padding: 5px 10px;
+    padding: 2px 5px;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 80%;
+    font-size: 70%;
   `;
   copyButton.addEventListener("click", () => {
     copyCodeContent(block);
